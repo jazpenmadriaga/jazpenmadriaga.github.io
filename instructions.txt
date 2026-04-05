@@ -1,0 +1,157 @@
+As a Virtual Assistant, create me a portfolio using HTML, Tailwind and JS. Make sure it is mobile responsive and the navigation will be collapsible on the top left or right that when click, it will show the navigations. Use light theme. And send me the code instead of file, because your file downloader never works.
+
+Navigation: Home, Work Experience, Certifications and Trainings, Galleries of my Work, Social Media, Contact
+
+Sub Navigation/or click to direct to the exact section when the sub nav is click:
+Home:
+- Home
+- About Me
+- Skills & Software/Tools
+
+Work Experience:
+- Work Experience
+- Project
+- Character Reference
+
+-------------------------------------------------
+
+Home page should consist of:
+1. Hero Page - where there's my image on the left side, and short description about me on the right side. Below the short description, add two buttons: first button, "View Work", second button "Download Resume"
+
+2. Should have a section called "About Me", that describe my profession. Below it, add a pill type words, that highlights my niche as a VA
+
+3. Should have a section about Skills & Software/Tools. When showing them, categorized them by type
+4. Should have a footer section that will say:
+Ready to Work Together?
+Let’s connect and explore how I can support your team and help bring your vision to life.
+
+"Get In Touch" this is a button that will direct the viewer to 'Contact' page
+
+-------------------------------------------------
+
+Work Experience page should consist of:
+1. Should have a header section that will say:
+Work Experience
+A journey through my professional career, showcasing growth, achievements, and the impact I've made.
+
+2. A section to list down all my five work experiences. Each work format should be:
+Property Management Assistant (Remote)
+Regex Property Management | December 2025 – February 4, 2026
+- Description 1
+- Description 2
+- Description 3
+
+Technologies Used in pill type words
+
+3. A section that will show the projects I have done
+4. A section to show my character references
+
+-------------------------------------------------
+
+Certifications and Trainings page should consist of:
+1. Should have a header section that will say:
+Certifications and Training
+Create a short description for this header
+
+2. Show each training in a card, card format should be like:
+- Image
+- Title
+- Description
+- Related Skills
+- Two buttons "View Certificate" & Verify Certificate
+
+-------------------------------------------------
+
+Galleries of my Work page should consist of:
+1. Should have a header section that will say:
+Galleries of my Work
+Create a short description for this header
+
+2. Should create a section per niche as a VA
+3. Each section should have images/videos Gallery that I can click on left and right arrow to view other images/videos, like:
+- On the left side, it will show the images/videos, and on the right side is the description about the images/videos. Each image/video should have description/context per slide.
+
+-------------------------------------------------
+
+Social Media page should consist of:
+1. Should have a header section that will say:
+Social Media
+Connect with me across different platforms and stay updated with my professional journey and insights.
+- LinkedIn
+- Instagram
+- Facebook
+
+2. A footer that has:
+Let's Connect!
+I'm always open to connecting with fellow professionals, sharing knowledge, and exploring new opportunities.
+
+"Follow on LinkedIn" & "Send a Message"
+
+3. And below the footer it will encourage others to follow me, it should say this:
+
+Why Follow Me?
+Here's what you can expect from my social media presence
+- Industry Insights
+- Project Updates
+- Learning Journey
+- Community Engagement
+
+-------------------------------------------------
+
+Contact page should consist of:
+1. Should have a header section that will say:
+Get In Touch
+Ready to start a conversation? I'd love to hear from you. Send me a message and I’ll respond as soon as possible.
+
+2. Should have form on the left side that goes something like:
+
+Send me a message 
+- Full Name
+- Email
+- Subject
+- Message
+- "Send Message" button
+
+note: I'll be using emailJS for this form
+
+On the left side, it should have:
+Contact Information
+
+These are my current contact information:
+
+Email:
+jazpenofficial@gmail.com
+Phone
+
+Phone:
+(+639)538300213
+Available Mon-Fri 9AM-6PM UTC +8
+
+Location:
+Olongapo, Philippines
+
+Response Time:
+Within 24 hours
+Usually much faster
+
+Open to new opportunities while currently employed.
+I'm open to new opportunities and collaborations. Whether you're looking for a full-time position, freelance work, or just want to finish a project, I’d love to hear from you.
+
+3. Should have a footer section that has:
+Frequently Asked Questions
+Quick answers to common questions about working with me
+
+What's your typical response time?
+I usually respond within 24 hours, often much faster during business hours.
+
+What type of program have you handled?
+
+Insurance, Real Estate add more
+
+Are you able to start working with us right away?
+
+Yes, add more wordings here
+
+-------------------------------------------------
+
+Insert all information you can find using this CV file. Send me the full code not a file zip.

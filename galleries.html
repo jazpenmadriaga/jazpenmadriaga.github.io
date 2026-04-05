@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galleries — Jazpen</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563eb',
+            'primary-dark': '#1d4ed8',
+            accent: '#f59e0b',
+            surface: '#f8fafc',
+            muted: '#64748b',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    html { scroll-behavior: smooth; }
+    .nav-dropdown { z-index: 50; }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Overlay -->
+  <div id="overlay" class="hidden fixed inset-0 bg-black/40 z-40 lg:hidden"></div>
+
+  <!-- Mobile Menu -->
+  <nav id="mobile-menu" class="fixed top-0 left-0 h-full w-72 bg-white shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 lg:hidden overflow-y-auto">
+    <div class="p-6">
+      <div class="flex items-center justify-between mb-8">
+        <span class="text-xl font-bold text-primary">Jazpen</span>
+      </div>
+      <ul class="space-y-2">
+        <li>
+          <button class="mobile-sub-toggle w-full flex items-center justify-between py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 font-medium">
+            Home <i class="fas fa-chevron-down text-xs toggle-icon transition-transform duration-200"></i>
+          </button>
+          <ul class="hidden ml-4 space-y-1 mt-1">
+            <li><a href="index.html#hero" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-600 text-sm">Home</a></li>
+            <li><a href="index.html#about" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-600 text-sm">About Me</a></li>
+            <li><a href="index.html#skills" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-600 text-sm">Skills & Software/Tools</a></li>
+          </ul>
+        </li>
+        <li>
+          <button class="mobile-sub-toggle w-full flex items-center justify-between py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 font-medium">
+            Work Experience <i class="fas fa-chevron-down text-xs toggle-icon transition-transform duration-200"></i>
+          </button>
+          <ul class="hidden ml-4 space-y-1 mt-1">
+            <li><a href="work-experience.html#experience" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-600 text-sm">Work Experience</a></li>
+            <li><a href="work-experience.html#projects" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-600 text-sm">Projects</a></li>
+            <li><a href="work-experience.html#references" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-600 text-sm">Character Reference</a></li>
+          </ul>
+        </li>
+        <li><a href="certifications.html" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 font-medium">Certifications</a></li>
+        <li><a href="galleries.html" class="block py-2 px-3 rounded-lg bg-blue-50 text-primary font-medium">Galleries</a></li>
+        <li><a href="social-media.html" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 font-medium">Social Media</a></li>
+        <li><a href="contact.html" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 font-medium">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-white/90 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="text-xl font-bold text-primary">Jazpen</a>
+        <button id="menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-gray-100">
+          <i id="menu-icon" class="fas fa-bars text-xl text-gray-700"></i>
+          <i id="close-icon" class="fas fa-times text-xl text-gray-700 hidden"></i>
+        </button>
+        <nav class="hidden lg:flex items-center space-x-1">
+          <div class="relative">
+            <button class="nav-dropdown-btn flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-primary transition">
+              Home <i class="fas fa-chevron-down text-[10px]"></i>
+            </button>
+            <div class="nav-dropdown hidden absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-lg border border-gray-100 py-2">
+              <a href="index.html#hero" class="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-primary">Home</a>
+              <a href="index.html#about" class="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-primary">About Me</a>
+              <a href="index.html#skills" class="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-primary">Skills & Software/Tools</a>
+            </div>
+          </div>
+          <div class="relative">
+            <button class="nav-dropdown-btn flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-primary transition">
+              Work Experience <i class="fas fa-chevron-down text-[10px]"></i>
+            </button>
+            <div class="nav-dropdown hidden absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-lg border border-gray-100 py-2">
+              <a href="work-experience.html#experience" class="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-primary">Work Experience</a>
+              <a href="work-experience.html#projects" class="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-primary">Projects</a>
+              <a href="work-experience.html#references" class="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-primary">Character Reference</a>
+            </div>
+          </div>
+          <a href="certifications.html" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-primary transition">Certifications</a>
+          <a href="galleries.html" class="px-4 py-2 rounded-lg text-sm font-medium text-primary bg-blue-50 transition">Galleries</a>
+          <a href="social-media.html" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-primary transition">Social Media</a>
+          <a href="contact.html" class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary-dark transition">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="pt-28 pb-16 bg-gradient-to-br from-blue-50 via-white to-amber-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center scroll-animate">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Galleries of my Work</h1>
+      <div class="w-20 h-1 bg-primary mx-auto rounded-full mb-6"></div>
+      <p class="text-lg text-muted max-w-2xl mx-auto">
+        A visual showcase of my professional work across different domains. Browse through samples that demonstrate the quality and range of my services.
+      </p>
+    </div>
+  </section>
+
+  <!-- Property Management Gallery -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8 scroll-animate">
+        <i class="fas fa-building text-primary mr-2"></i> Property Management
+      </h2>
+      <div class="gallery-slider bg-surface rounded-2xl border border-gray-100 overflow-hidden scroll-animate">
+        <div class="flex flex-col lg:flex-row">
+          <!-- Slides -->
+          <div class="lg:w-1/2 relative bg-gray-100 min-h-[300px] flex items-center justify-center">
+            <div class="gallery-slide w-full h-full flex items-center justify-center p-8" data-description="Managed property listings on AppFolio, ensuring accurate details for over 100 residential and commercial units. Updated pricing, photos, and availability status in real-time.">
+              <div class="text-center">
+                <i class="fas fa-home text-6xl text-primary/30 mb-4"></i>
+                <p class="text-muted text-sm">Property Listing Management</p>
+              </div>
+            </div>
+            <div class="gallery-slide hidden w-full h-full flex items-center justify-center p-8" data-description="Created detailed maintenance tracking spreadsheets to coordinate vendor schedules, track work orders, and ensure timely resolution of tenant requests.">
+              <div class="text-center">
+                <i class="fas fa-tools text-6xl text-primary/30 mb-4"></i>
+                <p class="text-muted text-sm">Maintenance Tracking System</p>
+              </div>
+            </div>
+            <div class="gallery-slide hidden w-full h-full flex items-center justify-center p-8" data-description="Organized and maintained tenant communication logs, lease renewal reminders, and move-in/move-out documentation for seamless property management workflows.">
+              <div class="text-center">
+                <i class="fas fa-file-contract text-6xl text-primary/30 mb-4"></i>
+                <p class="text-muted text-sm">Tenant Documentation</p>
+              </div>
+            </div>
+            <!-- Controls -->
+            <button class="prev-btn absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full shadow flex items-center justify-center hover:bg-white transition">
+              <i class="fas fa-chevron-left text-gray-700"></i>
+            </button>
+            <button class="next-btn absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full shadow flex items-center justify-center hover:bg-white transition">
+              <i class="fas fa-chevron-right text-gray-700"></i>
+            </button>
+          </div>
+          <!-- Description -->
+          <div class="lg:w-1/2 p-8 flex flex-col justify-center">
+            <span class="slide-counter text-sm text-primary font-semibold mb-2">1 / 3</span>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Property Management Work</h3>
+            <p class="slide-description text-gray-600 leading-relaxed">Managed property listings on AppFolio, ensuring accurate details for over 100 residential and commercial units. Updated pricing, photos, and availability status in real-time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Admin & Data Entry Gallery -->
+  <section class="py-16 bg-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8 scroll-animate">
+        <i class="fas fa-database text-amber-600 mr-2"></i> Administrative & Data Entry
+      </h2>
+      <div class="gallery-slider bg-white rounded-2xl border border-gray-100 overflow-hidden scroll-animate">
+        <div class="flex flex-col lg:flex-row">
+          <div class="lg:w-1/2 relative bg-gray-100 min-h-[300px] flex items-center justify-center">
+            <div class="gallery-slide w-full h-full flex items-center justify-center p-8" data-description="Built comprehensive spreadsheets for tracking client data, policy information, and renewal dates. Ensured 100% accuracy across 2,000+ records during a major data migration project.">
+              <div class="text-center">
+                <i class="fas fa-table text-6xl text-amber-500/30 mb-4"></i>
+                <p class="text-muted text-sm">Data Management Spreadsheet</p>
+              </div>
+            </div>
+            <div class="gallery-slide hidden w-full h-full flex items-center justify-center p-8" data-description="Managed complex email inboxes, organizing correspondence by priority, flagging urgent items, and drafting professional responses on behalf of clients.">
+              <div class="text-center">
+                <i class="fas fa-envelope text-6xl text-amber-500/30 mb-4"></i>
+                <p class="text-muted text-sm">Email Management</p>
+              </div>
+            </div>
+            <div class="gallery-slide hidden w-full h-full flex items-center justify-center p-8" data-description="Created organized filing systems and document templates that streamlined administrative workflows and reduced document retrieval time by 50%.">
+              <div class="text-center">
+                <i class="fas fa-folder-open text-6xl text-amber-500/30 mb-4"></i>
+                <p class="text-muted text-sm">Document Organization</p>
+              </div>
+            </div>
+            <button class="prev-btn absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full shadow flex items-center justify-center hover:bg-white transition">
+              <i class="fas fa-chevron-left text-gray-700"></i>
+            </button>
+            <button class="next-btn absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full shadow flex items-center justify-center hover:bg-white transition">
+              <i class="fas fa-chevron-right text-gray-700"></i>
+            </button>
+          </div>
+          <div class="lg:w-1/2 p-8 flex flex-col justify-center">
+            <span class="slide-counter text-sm text-amber-600 font-semibold mb-2">1 / 3</span>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Administrative & Data Entry Work</h3>
+            <p class="slide-description text-gray-600 leading-relaxed">Built comprehensive spreadsheets for tracking client data, policy information, and renewal dates. Ensured 100% accuracy across 2,000+ records during a major data migration project.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Media & Design Gallery -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8 scroll-animate">
+        <i class="fas fa-paint-brush text-pink-600 mr-2"></i> Social Media & Design
+      </h2>
+      <div class="gallery-slider bg-surface rounded-2xl border border-gray-100 overflow-hidden scroll-animate">
+        <div class="flex flex-col lg:flex-row">
+          <div class="lg:w-1/2 relative bg-gray-100 min-h-[300px] flex items-center justify-center">
+            <div class="gallery-slide w-full h-full flex items-center justify-center p-8" data-description="Designed eye-catching social media graphics using Canva for real estate listings. Created a consistent brand aesthetic that increased engagement by 45% across platforms.">
+              <div class="text-center">
+                <i class="fas fa-image text-6xl text-pink-500/30 mb-4"></i>
+                <p class="text-muted text-sm">Social Media Graphics</p>
+              </div>
+            </div>
+            <div class="gallery-slide hidden w-full h-full flex items-center justify-center p-8" data-description="Developed monthly content calendars for multiple social media platforms, planning posts, stories, and engagement strategies aligned with client marketing goals.">
+              <div class="text-center">
+                <i class="fas fa-calendar-alt text-6xl text-pink-500/30 mb-4"></i>
+                <p class="text-muted text-sm">Content Calendar Planning</p>
+              </div>
+            </div>
+            <div class="gallery-slide hidden w-full h-full flex items-center justify-center p-8" data-description="Created promotional materials including flyers, business cards, and digital ads for property listing campaigns and open house events.">
+              <div class="text-center">
+                <i class="fas fa-ad text-6xl text-pink-500/30 mb-4"></i>
+                <p class="text-muted text-sm">Marketing Materials</p>
+              </div>
+            </div>
+            <button class="prev-btn absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full shadow flex items-center justify-center hover:bg-white transition">
+              <i class="fas fa-chevron-left text-gray-700"></i>
+            </button>
+            <button class="next-btn absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full shadow flex items-center justify-center hover:bg-white transition">
+              <i class="fas fa-chevron-right text-gray-700"></i>
+            </button>
+          </div>
+          <div class="lg:w-1/2 p-8 flex flex-col justify-center">
+            <span class="slide-counter text-sm text-pink-600 font-semibold mb-2">1 / 3</span>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Social Media & Design Work</h3>
+            <p class="slide-description text-gray-600 leading-relaxed">Designed eye-catching social media graphics using Canva for real estate listings. Created a consistent brand aesthetic that increased engagement by 45% across platforms.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Insurance & Customer Service Gallery -->
+  <section class="py-16 bg-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8 scroll-animate">
+        <i class="fas fa-shield-alt text-green-600 mr-2"></i> Insurance & Customer Service
+      </h2>
+      <div class="gallery-slider bg-white rounded-2xl border border-gray-100 overflow-hidden scroll-animate">
+        <div class="flex flex-col lg:flex-row">
+          <div class="lg:w-1/2 relative bg-gray-100 min-h-[300px] flex items-center justify-center">
+            <div class="gallery-slide w-full h-full flex items-center justify-center p-8" data-description="Processed insurance claims efficiently using Salesforce, maintaining accurate documentation and ensuring compliance with policy guidelines for timely claim resolutions.">
+              <div class="text-center">
+                <i class="fas fa-file-invoice-dollar text-6xl text-green-500/30 mb-4"></i>
+                <p class="text-muted text-sm">Insurance Claims Processing</p>
+              </div>
+            </div>
+            <div class="gallery-slide hidden w-full h-full flex items-center justify-center p-8" data-description="Handled customer inquiries through multi-channel support (phone, email, chat), maintaining high satisfaction scores and resolving issues within SLA requirements.">
+              <div class="text-center">
+                <i class="fas fa-headset text-6xl text-green-500/30 mb-4"></i>
+                <p class="text-muted text-sm">Customer Support</p>
+              </div>
+            </div>
+            <div class="gallery-slide hidden w-full h-full flex items-center justify-center p-8" data-description="Created client onboarding documentation and policy renewal tracking systems that improved client retention rates and reduced missed renewal deadlines.">
+              <div class="text-center">
+                <i class="fas fa-user-check text-6xl text-green-500/30 mb-4"></i>
+                <p class="text-muted text-sm">Client Onboarding</p>
+              </div>
+            </div>
+            <button class="prev-btn absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full shadow flex items-center justify-center hover:bg-white transition">
+              <i class="fas fa-chevron-left text-gray-700"></i>
+            </button>
+            <button class="next-btn absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full shadow flex items-center justify-center hover:bg-white transition">
+              <i class="fas fa-chevron-right text-gray-700"></i>
+            </button>
+          </div>
+          <div class="lg:w-1/2 p-8 flex flex-col justify-center">
+            <span class="slide-counter text-sm text-green-600 font-semibold mb-2">1 / 3</span>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Insurance & Customer Service Work</h3>
+            <p class="slide-description text-gray-600 leading-relaxed">Processed insurance claims efficiently using Salesforce, maintaining accurate documentation and ensuring compliance with policy guidelines for timely claim resolutions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer CTA -->
+  <section class="py-20 bg-gradient-to-r from-primary to-blue-700">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center scroll-animate">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Work Together?</h2>
+      <p class="text-blue-100 text-lg max-w-2xl mx-auto mb-8">
+        Let's connect and explore how I can support your team and help bring your vision to life.
+      </p>
+      <a href="contact.html" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-xl font-bold text-lg hover:bg-blue-50 transition shadow-lg">
+        <i class="fas fa-envelope"></i> Get In Touch
+      </a>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-gray-400 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-sm">&copy; 2026 Jazpen. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
