@@ -1,13 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jazpen — Virtual Assistant Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563eb',
+            'primary-dark': '#1d4ed8',
+            accent: '#f59e0b',
+            surface: '#f8fafc',
+            muted: '#64748b',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    html { scroll-behavior: smooth; }
+    .nav-dropdown { z-index: 50; }
+  </style>
 </head>
-<body>
-    <script>
-        window.location.href = "https://jazpens-portfolio-d55f15.ingress-earth.ewp.live/";
-    </script>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Overlay -->
+  <div id="overlay" class="hidden fixed inset-0 bg-black/40 z-40 lg:hidden"></div>
+
+  <!-- Mobile Menu -->
+  <nav id="mobile-menu" class="fixed top-0 left-0 h-full w-72 bg-white shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 lg:hidden overflow-y-auto">
+    <div class="p-6">
+      <div class="flex items-center justify-between mb-8">
+        <span class="text-xl font-bold text-primary">Jazpen</span>
+      </div>
+      <ul class="space-y-2">
+        <!-- Home with sub -->
+        <li>
+          <button class="mobile-sub-toggle w-full flex items-center justify-between py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 font-medium">
+            Home
+            <i class="fas fa-chevron-down text-xs toggle-icon transition-transform duration-200"></i>
+          </button>
+          <ul class="hidden ml-4 space-y-1 mt-1">
+            <li><a href="index.html#hero" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-600 text-sm">Home</a></li>
+            <li><a href="index.html#about" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-600 text-sm">About Me</a></li>
+            <li><a href="index.html#skills" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-600 text-sm">Skills & Software/Tools</a></li>
+          </ul>
+        </li>
+        <!-- Work Experience with sub -->
+        <li>
+          <button class="mobile-sub-toggle w-full flex items-center justify-between py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 font-medium">
+            Work Experience
+            <i class="fas fa-chevron-down text-xs toggle-icon transition-transform duration-200"></i>
+          </button>
+          <ul class="hidden ml-4 space-y-1 mt-1">
+            <li><a href="work-experience.html#experience" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-600 text-sm">Work Experience</a></li>
+            <li><a href="work-experience.html#projects" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-600 text-sm">Projects</a></li>
+            <li><a href="work-experience.html#references" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-600 text-sm">Character Reference</a></li>
+          </ul>
+        </li>
+        <li><a href="certifications.html" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 font-medium">Certifications</a></li>
+        <li><a href="galleries.html" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 font-medium">Galleries</a></li>
+        <li><a href="social-media.html" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 font-medium">Social Media</a></li>
+        <li><a href="contact.html" class="block py-2 px-3 rounded-lg hover:bg-blue-50 text-gray-700 font-medium">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-white/90 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="index.html" class="text-xl font-bold text-primary">Jazpen</a>
+
+        <!-- Mobile Menu Button -->
+        <button id="menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-gray-100">
+          <i id="menu-icon" class="fas fa-bars text-xl text-gray-700"></i>
+          <i id="close-icon" class="fas fa-times text-xl text-gray-700 hidden"></i>
+        </button>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center space-x-1">
+          <!-- Home dropdown -->
+          <div class="relative">
+            <button class="nav-dropdown-btn flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-primary transition">
+              Home <i class="fas fa-chevron-down text-[10px]"></i>
+            </button>
+            <div class="nav-dropdown hidden absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-lg border border-gray-100 py-2">
+              <a href="index.html#hero" class="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-primary">Home</a>
+              <a href="index.html#about" class="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-primary">About Me</a>
+              <a href="index.html#skills" class="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-primary">Skills & Software/Tools</a>
+            </div>
+          </div>
+          <!-- Work Experience dropdown -->
+          <div class="relative">
+            <button class="nav-dropdown-btn flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-primary transition">
+              Work Experience <i class="fas fa-chevron-down text-[10px]"></i>
+            </button>
+            <div class="nav-dropdown hidden absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-lg border border-gray-100 py-2">
+              <a href="work-experience.html#experience" class="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-primary">Work Experience</a>
+              <a href="work-experience.html#projects" class="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-primary">Projects</a>
+              <a href="work-experience.html#references" class="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-primary">Character Reference</a>
+            </div>
+          </div>
+          <a href="certifications.html" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-primary transition">Certifications</a>
+          <a href="galleries.html" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-primary transition">Galleries</a>
+          <a href="social-media.html" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-primary transition">Social Media</a>
+          <a href="contact.html" class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary-dark transition">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="pt-28 pb-16 md:pt-36 md:pb-24 bg-gradient-to-br from-blue-50 via-white to-amber-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+        <!-- Profile Image -->
+        <div class="flex-shrink-0 scroll-animate">
+          <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl ring-4 ring-primary/20">
+            <img src="assets/profile.jpg" alt="Jazpen — Virtual Assistant" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <!-- Hero Text -->
+        <div class="text-center md:text-left scroll-animate">
+          <p class="text-primary font-semibold text-sm uppercase tracking-wider mb-2">Virtual Assistant</p>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4">
+            Hi, I'm <span class="text-primary">Jazpen</span>
+          </h1>
+          <p class="text-lg md:text-xl text-muted max-w-xl mb-8 leading-relaxed">
+            A dedicated and detail-oriented Virtual Assistant with experience in property management, administrative support, and client coordination. I help businesses streamline their operations, manage communications, and stay organized — so you can focus on what matters most.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <a href="work-experience.html" class="inline-flex items-center justify-center gap-2 px-8 py-3 bg-primary text-white rounded-xl font-semibold hover:bg-primary-dark transition shadow-lg shadow-primary/25">
+              <i class="fas fa-briefcase"></i> View Work
+            </a>
+            <a href="#" class="inline-flex items-center justify-center gap-2 px-8 py-3 border-2 border-primary text-primary rounded-xl font-semibold hover:bg-primary hover:text-white transition">
+              <i class="fas fa-download"></i> Download Resume
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 scroll-animate">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">About Me</h2>
+        <div class="w-20 h-1 bg-primary mx-auto rounded-full mb-6"></div>
+        <p class="text-lg text-muted max-w-3xl mx-auto leading-relaxed">
+          I am a professional Virtual Assistant with hands-on experience in property management, real estate operations, administrative tasks, and customer relations. I thrive in remote work environments and am committed to delivering high-quality support to help businesses grow efficiently. With strong organizational skills and a proactive approach, I ensure that every task is handled with precision and professionalism.
+        </p>
+      </div>
+
+      <!-- Niche Pills -->
+      <div class="flex flex-wrap justify-center gap-3 scroll-animate">
+        <span class="px-5 py-2.5 bg-blue-50 text-primary rounded-full text-sm font-semibold border border-blue-100">Property Management</span>
+        <span class="px-5 py-2.5 bg-blue-50 text-primary rounded-full text-sm font-semibold border border-blue-100">Administrative Support</span>
+        <span class="px-5 py-2.5 bg-blue-50 text-primary rounded-full text-sm font-semibold border border-blue-100">Real Estate</span>
+        <span class="px-5 py-2.5 bg-blue-50 text-primary rounded-full text-sm font-semibold border border-blue-100">Client Coordination</span>
+        <span class="px-5 py-2.5 bg-blue-50 text-primary rounded-full text-sm font-semibold border border-blue-100">Email Management</span>
+        <span class="px-5 py-2.5 bg-blue-50 text-primary rounded-full text-sm font-semibold border border-blue-100">Data Entry</span>
+        <span class="px-5 py-2.5 bg-blue-50 text-primary rounded-full text-sm font-semibold border border-blue-100">Insurance</span>
+        <span class="px-5 py-2.5 bg-blue-50 text-primary rounded-full text-sm font-semibold border border-blue-100">Calendar Management</span>
+        <span class="px-5 py-2.5 bg-blue-50 text-primary rounded-full text-sm font-semibold border border-blue-100">Research</span>
+        <span class="px-5 py-2.5 bg-blue-50 text-primary rounded-full text-sm font-semibold border border-blue-100">Social Media Management</span>
+        <span class="px-5 py-2.5 bg-blue-50 text-primary rounded-full text-sm font-semibold border border-blue-100">Customer Service</span>
+        <span class="px-5 py-2.5 bg-blue-50 text-primary rounded-full text-sm font-semibold border border-blue-100">Project Coordination</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills & Software/Tools Section -->
+  <section id="skills" class="py-20 bg-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 scroll-animate">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Skills & Software/Tools</h2>
+        <div class="w-20 h-1 bg-primary mx-auto rounded-full mb-6"></div>
+        <p class="text-lg text-muted max-w-2xl mx-auto">The tools and technologies I use to deliver efficient and high-quality virtual assistance.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Communication & Collaboration -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition scroll-animate border border-gray-100">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <i class="fas fa-comments text-primary text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-4">Communication & Collaboration</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Slack</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Microsoft Teams</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Zoom</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Google Meet</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Skype</span>
+          </div>
+        </div>
+
+        <!-- Project Management -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition scroll-animate border border-gray-100">
+          <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
+            <i class="fas fa-tasks text-amber-600 text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-4">Project Management</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Trello</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Asana</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Monday.com</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">ClickUp</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Notion</span>
+          </div>
+        </div>
+
+        <!-- Office & Productivity -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition scroll-animate border border-gray-100">
+          <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+            <i class="fas fa-file-alt text-green-600 text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-4">Office & Productivity</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Google Workspace</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Microsoft Office</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Google Sheets</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Google Docs</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Excel</span>
+          </div>
+        </div>
+
+        <!-- CRM & Property Management -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition scroll-animate border border-gray-100">
+          <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+            <i class="fas fa-building text-purple-600 text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-4">CRM & Property Management</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">AppFolio</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Buildium</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">HubSpot</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Salesforce</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Zoho CRM</span>
+          </div>
+        </div>
+
+        <!-- Design & Social Media -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition scroll-animate border border-gray-100">
+          <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center mb-4">
+            <i class="fas fa-paint-brush text-pink-600 text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-4">Design & Social Media</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Canva</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Adobe Photoshop</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Buffer</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Hootsuite</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Meta Business Suite</span>
+          </div>
+        </div>
+
+        <!-- Other Tools -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition scroll-animate border border-gray-100">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <i class="fas fa-tools text-red-600 text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-4">Other Tools</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">ChatGPT / AI Tools</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">LastPass</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Calendly</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Loom</span>
+            <span class="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-sm border">Google Calendar</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer CTA -->
+  <section class="py-20 bg-gradient-to-r from-primary to-blue-700">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center scroll-animate">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Work Together?</h2>
+      <p class="text-blue-100 text-lg max-w-2xl mx-auto mb-8">
+        Let's connect and explore how I can support your team and help bring your vision to life.
+      </p>
+      <a href="contact.html" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-xl font-bold text-lg hover:bg-blue-50 transition shadow-lg">
+        <i class="fas fa-envelope"></i> Get In Touch
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-sm">&copy; 2026 Jazpen. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
